@@ -14,10 +14,25 @@ pipeline {
     }
 
     stages {
+        stage('Checkout Repository') {
+            steps {
+                script {
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/main']],  // Remplace 'main' par la branche correcte
+                        userRemoteConfigs: [[
+                            url: 'https://github.com/AmenaMaktouf/maktouf-amena-4DS5-ml_project.git',
+                            credentialsId: 'github-credentials'
+                        ]]
+                    ])
+                }
+            }
+        }
+
         stage('Setup Environment') {
             steps {
                 script {
-                    sh 'make setup'  // Crée l'environnement virtuel et installe les dépendances
+                    sh 'make setup'
                 }
             }
         }
@@ -25,7 +40,7 @@ pipeline {
         stage('Verify Code Quality') {
             steps {
                 script {
-                    sh 'make verify'  // Vérification du code avec Black et Pylint
+                    sh 'make verify'
                 }
             }
         }
@@ -33,7 +48,7 @@ pipeline {
         stage('Prepare Data') {
             steps {
                 script {
-                    sh 'make prepare'  // Préparation des données
+                    sh 'make prepare'
                 }
             }
         }
@@ -41,7 +56,7 @@ pipeline {
         stage('Train Model') {
             steps {
                 script {
-                    sh 'make train'  // Entraînement du modèle
+                    sh 'make train'
                 }
             }
         }
@@ -49,7 +64,7 @@ pipeline {
         stage('Evaluate Model') {
             steps {
                 script {
-                    sh 'make evaluate'  // Évaluation du modèle
+                    sh 'make evaluate'
                 }
             }
         }
@@ -57,7 +72,7 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 script {
-                    sh 'make test'  // Exécution des tests unitaires
+                    sh 'make test'
                 }
             }
         }
@@ -65,7 +80,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'make build_docker'  // Construction de l'image Docker
+                    sh 'make build_docker'
                 }
             }
         }
@@ -73,8 +88,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    sh 'make docker_login'  // Connexion à Docker Hub
-                    sh 'docker push ${IMAGE_NAME}:${TAG}'  // Pousser l'image Docker
+                    sh 'make docker_login'
+                    sh 'docker push ${IMAGE_NAME}:${TAG}'
                 }
             }
         }
@@ -82,7 +97,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'make run_docker'  // Exécution du conteneur Docker
+                    sh 'make run_docker'
                 }
             }
         }
@@ -90,7 +105,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 script {
-                    sh 'make deploy'  // Déploiement complet de l'application avec Docker
+                    sh 'make deploy'
                 }
             }
         }
@@ -99,7 +114,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up after pipeline...'
-            sh 'make clean'  // Nettoyage après exécution
+            sh 'make clean'
         }
 
         success {
