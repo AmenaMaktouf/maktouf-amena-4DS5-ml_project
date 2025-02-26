@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/a75c593cbbbb4e408a0438b5268159e9/artifacts
+end_time: 1739305977915
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: a75c593cbbbb4e408a0438b5268159e9
+run_name: traveling-conch-539
+run_uuid: a75c593cbbbb4e408a0438b5268159e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739305971405
+status: 3
+tags: []
+user_id: amena

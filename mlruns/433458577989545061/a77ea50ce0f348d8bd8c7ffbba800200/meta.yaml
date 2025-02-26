@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/a77ea50ce0f348d8bd8c7ffbba800200/artifacts
+end_time: 1739128249728
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: a77ea50ce0f348d8bd8c7ffbba800200
+run_name: efficient-hawk-988
+run_uuid: a77ea50ce0f348d8bd8c7ffbba800200
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739128249721
+status: 4
+tags: []
+user_id: amena

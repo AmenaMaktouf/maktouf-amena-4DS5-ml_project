@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/e6b4b30abbf04912a716bb6f3f3bdb63/artifacts
+end_time: 1739117844982
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: e6b4b30abbf04912a716bb6f3f3bdb63
+run_name: lyrical-lamb-874
+run_uuid: e6b4b30abbf04912a716bb6f3f3bdb63
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739117839815
+status: 3
+tags: []
+user_id: amena

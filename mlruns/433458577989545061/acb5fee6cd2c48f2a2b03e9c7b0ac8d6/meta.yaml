@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/acb5fee6cd2c48f2a2b03e9c7b0ac8d6/artifacts
+end_time: 1739127837695
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: acb5fee6cd2c48f2a2b03e9c7b0ac8d6
+run_name: indecisive-ram-701
+run_uuid: acb5fee6cd2c48f2a2b03e9c7b0ac8d6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739127837687
+status: 4
+tags: []
+user_id: amena

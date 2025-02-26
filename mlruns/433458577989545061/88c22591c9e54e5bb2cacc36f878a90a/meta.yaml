@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/88c22591c9e54e5bb2cacc36f878a90a/artifacts
+end_time: 1739127223683
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 88c22591c9e54e5bb2cacc36f878a90a
+run_name: bald-calf-404
+run_uuid: 88c22591c9e54e5bb2cacc36f878a90a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739127223676
+status: 4
+tags: []
+user_id: amena

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/832d1605aeb045799f18a1e09aa0237e/artifacts
+end_time: 1739129497080
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 832d1605aeb045799f18a1e09aa0237e
+run_name: capable-crane-887
+run_uuid: 832d1605aeb045799f18a1e09aa0237e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739129497072
+status: 4
+tags: []
+user_id: amena

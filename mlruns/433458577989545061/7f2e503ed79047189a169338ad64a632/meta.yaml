@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/7f2e503ed79047189a169338ad64a632/artifacts
+end_time: 1739062108902
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 7f2e503ed79047189a169338ad64a632
+run_name: upset-conch-708
+run_uuid: 7f2e503ed79047189a169338ad64a632
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739062099072
+status: 3
+tags: []
+user_id: amena

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/91a0060e41e54c83b22ab6c9748fa1c6/artifacts
+end_time: 1739119002748
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 91a0060e41e54c83b22ab6c9748fa1c6
+run_name: intelligent-lamb-51
+run_uuid: 91a0060e41e54c83b22ab6c9748fa1c6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739119002741
+status: 4
+tags: []
+user_id: amena

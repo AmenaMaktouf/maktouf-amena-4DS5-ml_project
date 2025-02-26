@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/657a939e68e64f81b1feefdc90296ee9/artifacts
+end_time: 1739059069283
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 657a939e68e64f81b1feefdc90296ee9
+run_name: fearless-vole-194
+run_uuid: 657a939e68e64f81b1feefdc90296ee9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739059067292
+status: 3
+tags: []
+user_id: amena

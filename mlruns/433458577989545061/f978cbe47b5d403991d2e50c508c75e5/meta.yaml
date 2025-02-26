@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/f978cbe47b5d403991d2e50c508c75e5/artifacts
+end_time: 1739126898725
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: f978cbe47b5d403991d2e50c508c75e5
+run_name: welcoming-ox-826
+run_uuid: f978cbe47b5d403991d2e50c508c75e5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739126898716
+status: 4
+tags: []
+user_id: amena

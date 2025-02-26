@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/24ea653e28c447539f90981071987774/artifacts
+end_time: 1739058736727
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 24ea653e28c447539f90981071987774
+run_name: stately-bug-624
+run_uuid: 24ea653e28c447539f90981071987774
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739058733982
+status: 3
+tags: []
+user_id: amena

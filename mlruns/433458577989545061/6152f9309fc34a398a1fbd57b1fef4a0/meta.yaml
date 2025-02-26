@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/6152f9309fc34a398a1fbd57b1fef4a0/artifacts
+end_time: 1739306680540
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 6152f9309fc34a398a1fbd57b1fef4a0
+run_name: classy-stork-735
+run_uuid: 6152f9309fc34a398a1fbd57b1fef4a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739306680536
+status: 4
+tags: []
+user_id: amena

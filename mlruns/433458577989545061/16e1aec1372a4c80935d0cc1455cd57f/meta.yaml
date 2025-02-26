@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/16e1aec1372a4c80935d0cc1455cd57f/artifacts
+end_time: 1739058756534
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 16e1aec1372a4c80935d0cc1455cd57f
+run_name: big-hound-971
+run_uuid: 16e1aec1372a4c80935d0cc1455cd57f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739058756531
+status: 4
+tags: []
+user_id: amena

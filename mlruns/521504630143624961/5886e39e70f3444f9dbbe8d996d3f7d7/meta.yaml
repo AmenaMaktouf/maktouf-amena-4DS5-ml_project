@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/521504630143624961/5886e39e70f3444f9dbbe8d996d3f7d7/artifacts
+end_time: 1739055908369
+entry_point_name: ''
+experiment_id: '521504630143624961'
+lifecycle_stage: active
+run_id: 5886e39e70f3444f9dbbe8d996d3f7d7
+run_name: resilient-dog-45
+run_uuid: 5886e39e70f3444f9dbbe8d996d3f7d7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739055908360
+status: 3
+tags: []
+user_id: amena

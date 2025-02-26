@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/4e7dd6169df1441daef98162ef156728/artifacts
+end_time: 1739305945186
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 4e7dd6169df1441daef98162ef156728
+run_name: shivering-crab-743
+run_uuid: 4e7dd6169df1441daef98162ef156728
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739305945177
+status: 4
+tags: []
+user_id: amena

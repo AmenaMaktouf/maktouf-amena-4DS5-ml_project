@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/39bbc8f133f948d18334ee23ae45fe49/artifacts
+end_time: 1739119211701
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 39bbc8f133f948d18334ee23ae45fe49
+run_name: rogue-lark-551
+run_uuid: 39bbc8f133f948d18334ee23ae45fe49
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739119211689
+status: 4
+tags: []
+user_id: amena

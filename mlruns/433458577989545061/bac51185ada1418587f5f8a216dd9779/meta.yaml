@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/bac51185ada1418587f5f8a216dd9779/artifacts
+end_time: 1739118598647
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: bac51185ada1418587f5f8a216dd9779
+run_name: worried-pig-260
+run_uuid: bac51185ada1418587f5f8a216dd9779
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739118598638
+status: 4
+tags: []
+user_id: amena

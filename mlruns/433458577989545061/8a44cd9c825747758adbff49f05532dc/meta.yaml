@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/8a44cd9c825747758adbff49f05532dc/artifacts
+end_time: 1739129149703
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 8a44cd9c825747758adbff49f05532dc
+run_name: tasteful-skink-229
+run_uuid: 8a44cd9c825747758adbff49f05532dc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739129149693
+status: 4
+tags: []
+user_id: amena

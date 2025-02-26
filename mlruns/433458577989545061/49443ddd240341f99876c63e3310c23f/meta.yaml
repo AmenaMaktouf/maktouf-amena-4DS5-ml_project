@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/49443ddd240341f99876c63e3310c23f/artifacts
+end_time: 1739129668636
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 49443ddd240341f99876c63e3310c23f
+run_name: colorful-gnu-932
+run_uuid: 49443ddd240341f99876c63e3310c23f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739129668629
+status: 4
+tags: []
+user_id: amena

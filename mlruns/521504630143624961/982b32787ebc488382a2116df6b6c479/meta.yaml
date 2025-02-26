@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/521504630143624961/982b32787ebc488382a2116df6b6c479/artifacts
+end_time: 1739055783505
+entry_point_name: ''
+experiment_id: '521504630143624961'
+lifecycle_stage: active
+run_id: 982b32787ebc488382a2116df6b6c479
+run_name: gregarious-snipe-363
+run_uuid: 982b32787ebc488382a2116df6b6c479
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739055776296
+status: 3
+tags: []
+user_id: amena

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/06cc675e7edd48f49621471833b0b937/artifacts
+end_time: 1739307674556
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 06cc675e7edd48f49621471833b0b937
+run_name: bemused-worm-551
+run_uuid: 06cc675e7edd48f49621471833b0b937
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739307674535
+status: 3
+tags: []
+user_id: amena

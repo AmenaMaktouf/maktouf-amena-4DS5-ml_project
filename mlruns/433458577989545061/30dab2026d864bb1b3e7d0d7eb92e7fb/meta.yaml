@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/30dab2026d864bb1b3e7d0d7eb92e7fb/artifacts
+end_time: 1739059407352
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 30dab2026d864bb1b3e7d0d7eb92e7fb
+run_name: honorable-panda-464
+run_uuid: 30dab2026d864bb1b3e7d0d7eb92e7fb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739059405042
+status: 3
+tags: []
+user_id: amena

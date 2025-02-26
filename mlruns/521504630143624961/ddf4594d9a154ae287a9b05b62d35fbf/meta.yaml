@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/521504630143624961/ddf4594d9a154ae287a9b05b62d35fbf/artifacts
+end_time: 1739055787286
+entry_point_name: ''
+experiment_id: '521504630143624961'
+lifecycle_stage: active
+run_id: ddf4594d9a154ae287a9b05b62d35fbf
+run_name: debonair-smelt-516
+run_uuid: ddf4594d9a154ae287a9b05b62d35fbf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739055787273
+status: 3
+tags: []
+user_id: amena
