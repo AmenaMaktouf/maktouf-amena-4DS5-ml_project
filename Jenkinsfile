@@ -1,52 +1,39 @@
-kkpipeline {
+pipeline {
     agent any
+
     environment {
-        DOCKERHUB_CREDENTIAL_ID = 'mlops-jenkins-dockerhub-token'
-        DOCKERHUB_REGISTRY = 'https://registry.hub.docker.com'
-        DOCKERHUB_REPOSITORY = 'amenamaktouf/maktouf_amena_4ds5_mlops'
+        PYTHON = 'python3'
+        ENV_NAME = 'venv'
+        REQUIREMENTS = 'requirements.txt'
         IMAGE_NAME = 'amenamaktouf/maktouf_amena_4ds5_mlops'
         TAG = 'v1'
         CONTAINER_NAME = 'mlops_container'
+        MAIN_SCRIPT = 'main.py'
+        TEST_DIR = 'tests/'
+        SOURCE_DIR = 'model_pipeline.py'
     }
+
     stages {
-        stage('Clone Repository') {
+        stage('Checkout Repository') {
             steps {
                 script {
-                    echo 'Cloning GitHub Repository...'
-                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-git-token', url: 'https://github.com/AmenaMaktouf/maktouf-amena-4DS5-ml_project.git']])  
+                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-git-token', url: 'https://github.com/AmenaMaktouf/maktouf-amena-4DS5-ml_project.git']])
                 }
             }
         }
 
-        stage('Setup Virtual Environment') {
+        stage('Setup Environment') {
             steps {
                 script {
-                    echo 'Setting up the virtual environment...'
-                    sh 'python3 -m venv venv'
-                    sh './venv/bin/pip install --upgrade pip'
-                    sh './venv/bin/pip install -r requirements.txt'
-                    echo 'Virtual environment setup completed!'
+                    sh 'make setup'
                 }
             }
         }
 
-        stage('Lint Code') {
+        stage('Verify Code Quality') {
             steps {
                 script {
-                    echo 'Linting Python Code...'
-                    sh './venv/bin/python -m black --exclude "venv|mlops_env" .'
-                    sh './venv/bin/python -m pylint --disable=C,R model_pipeline.py || true'
-                    echo 'Code linted successfully!'
-                }
-            }
-        }
-
-        stage('Test Code') {
-            steps {
-                script {
-                    echo 'Running Unit Tests...'
-                    sh './venv/bin/python -m pytest tests/'
-                    echo 'Tests completed successfully!'
+                    sh 'make verify'
                 }
             }
         }
@@ -54,9 +41,7 @@ kkpipeline {
         stage('Prepare Data') {
             steps {
                 script {
-                    echo 'Preparing data...'
-                    sh './venv/bin/python model_pipeline.py --prepare'
-                    echo 'Data prepared successfully!'
+                    sh 'make prepare'
                 }
             }
         }
@@ -64,9 +49,7 @@ kkpipeline {
         stage('Train Model') {
             steps {
                 script {
-                    echo 'Training model...'
-                    sh './venv/bin/python model_pipeline.py --train'
-                    echo 'Model trained successfully!'
+                    sh 'make train'
                 }
             }
         }
@@ -74,9 +57,15 @@ kkpipeline {
         stage('Evaluate Model') {
             steps {
                 script {
-                    echo 'Evaluating model...'
-                    sh './venv/bin/python model_pipeline.py --evaluate'
-                    echo 'Model evaluation completed!'
+                    sh 'make evaluate'
+                }
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                script {
+                    sh 'make test'
                 }
             }
         }
@@ -84,9 +73,7 @@ kkpipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    echo 'Building Docker image...'
-                    sh 'docker build -t ${IMAGE_NAME}:${TAG} .'
-                    echo 'Docker image built successfully!'
+                    sh 'make build_docker'
                 }
             }
         }
@@ -94,45 +81,41 @@ kkpipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    echo 'Pushing Docker image to DockerHub...'
-                    docker.withRegistry("${DOCKERHUB_REGISTRY}", "${DOCKERHUB_CREDENTIAL_ID}") {
-                        sh 'docker push ${IMAGE_NAME}:${TAG}'
-                    }
-                    echo 'Docker image pushed to DockerHub successfully!'
+                    sh 'make docker_login'
+                    sh 'docker push ${IMAGE_NAME}:${TAG}'
                 }
             }
         }
 
-        stage('Deploy') {
+        stage('Run Docker Container') {
             steps {
                 script {
-                    echo 'Deploying to production...'
-                    sh 'aws ecs update-service --cluster iquant-ecs --service iquant-ecs-svc --force-new-deployment'
-                    echo 'Deployment completed successfully!'
+                    sh 'make run_docker'
                 }
             }
         }
 
-        stage('Clean Up') {
+        stage('Deploy Application') {
             steps {
                 script {
-                    echo 'Cleaning up...'
-                    sh 'rm -rf venv'
-                    echo 'Clean up completed!'
+                    sh 'make deploy'
                 }
             }
         }
     }
+
     post {
         always {
-            echo 'Pipeline execution completed.'
+            echo 'Cleaning up after pipeline...'
+            sh 'make clean'
         }
+
         success {
-            echo 'Pipeline succeeded!'
+            echo 'Pipeline completed successfully!'
         }
+
         failure {
-            echo 'Pipeline failed. Please check the logs for errors.'
+            echo 'Pipeline failed. Check logs for details.'
         }
     }
 }
-
