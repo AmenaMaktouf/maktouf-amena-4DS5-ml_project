@@ -15,10 +15,10 @@ flavors:
     sklearn_version: 1.6.1
 mlflow_version: 2.20.1
 model_size_bytes: 9031
-model_uuid: 96753515193e4630a9de4b27d0b855b5
-run_id: 9c076a8f70b64170b1d277d98c315b34
+model_uuid: 6bb2feace1494630834c4a1d2cc7c99b
+run_id: e440caccce5a440389afed07db8a14cc
 saved_input_example_info:
   artifact_path: input_example.json
   serving_input_path: serving_input_example.json
   type: json_object
-utc_time_created: '2025-02-12 16:39:03.736375'
+utc_time_created: '2025-02-27 18:08:10.010134'

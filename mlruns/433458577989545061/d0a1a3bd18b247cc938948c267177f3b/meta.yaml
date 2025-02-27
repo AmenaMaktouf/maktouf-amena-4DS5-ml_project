@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/d0a1a3bd18b247cc938948c267177f3b/artifacts
+end_time: 1740669725675
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: d0a1a3bd18b247cc938948c267177f3b
+run_name: respected-crow-237
+run_uuid: d0a1a3bd18b247cc938948c267177f3b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740669716177
+status: 3
+tags: []
+user_id: amena

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amena/maktouf-amena-4DS5-ml_project/mlruns/433458577989545061/328a8219ebbc4b2797fa1f026659bed5/artifacts
+end_time: 1740669209350
+entry_point_name: ''
+experiment_id: '433458577989545061'
+lifecycle_stage: active
+run_id: 328a8219ebbc4b2797fa1f026659bed5
+run_name: whimsical-skunk-652
+run_uuid: 328a8219ebbc4b2797fa1f026659bed5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740669204051
+status: 3
+tags: []
+user_id: amena

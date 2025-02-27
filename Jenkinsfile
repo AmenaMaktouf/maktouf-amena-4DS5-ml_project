@@ -1,46 +1,52 @@
-pipeline {
+kkpipeline {
     agent any
-
     environment {
-        PYTHON = 'python3'
-        ENV_NAME = 'venv'
-        REQUIREMENTS = 'requirements.txt'
+        DOCKERHUB_CREDENTIAL_ID = 'mlops-jenkins-dockerhub-token'
+        DOCKERHUB_REGISTRY = 'https://registry.hub.docker.com'
+        DOCKERHUB_REPOSITORY = 'amenamaktouf/maktouf_amena_4ds5_mlops'
         IMAGE_NAME = 'amenamaktouf/maktouf_amena_4ds5_mlops'
         TAG = 'v1'
         CONTAINER_NAME = 'mlops_container'
-        MAIN_SCRIPT = 'main.py'
-        TEST_DIR = 'tests/'
-        SOURCE_DIR = 'model_pipeline.py'
     }
-
     stages {
-        stage('Checkout Repository') {
+        stage('Clone Repository') {
             steps {
                 script {
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/main']],  // Remplace 'main' par la branche correcte
-                        userRemoteConfigs: [[
-                            url: 'https://github.com/AmenaMaktouf/maktouf-amena-4DS5-ml_project.git',
-                            credentialsId: 'github-credentials'
-                        ]]
-                    ])
+                    echo 'Cloning GitHub Repository...'
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-git-token', url: 'https://github.com/iQuantC/MLOps01.git']])
                 }
             }
         }
 
-        stage('Setup Environment') {
+        stage('Setup Virtual Environment') {
             steps {
                 script {
-                    sh 'make setup'
+                    echo 'Setting up the virtual environment...'
+                    sh 'python3 -m venv venv'
+                    sh './venv/bin/pip install --upgrade pip'
+                    sh './venv/bin/pip install -r requirements.txt'
+                    echo 'Virtual environment setup completed!'
                 }
             }
         }
 
-        stage('Verify Code Quality') {
+        stage('Lint Code') {
             steps {
                 script {
-                    sh 'make verify'
+                    echo 'Linting Python Code...'
+                    sh './venv/bin/python -m black --exclude "venv|mlops_env" .'
+                    sh './venv/bin/python -m pylint --disable=C,R model_pipeline.py || true'
+                    echo 'Code linted successfully!'
+                }
+            }
+        }
+
+        stage('Test Code') {
+            steps {
+                script {
+                    echo 'Running Unit Tests...'
+                    sh './venv/bin/python -m pytest tests/'
+                    echo 'Tests completed successfully!'
                 }
             }
         }
@@ -48,7 +54,9 @@ pipeline {
         stage('Prepare Data') {
             steps {
                 script {
-                    sh 'make prepare'
+                    echo 'Preparing data...'
+                    sh './venv/bin/python model_pipeline.py --prepare'
+                    echo 'Data prepared successfully!'
                 }
             }
         }
@@ -56,7 +64,9 @@ pipeline {
         stage('Train Model') {
             steps {
                 script {
-                    sh 'make train'
+                    echo 'Training model...'
+                    sh './venv/bin/python model_pipeline.py --train'
+                    echo 'Model trained successfully!'
                 }
             }
         }
@@ -64,15 +74,9 @@ pipeline {
         stage('Evaluate Model') {
             steps {
                 script {
-                    sh 'make evaluate'
-                }
-            }
-        }
-
-        stage('Run Unit Tests') {
-            steps {
-                script {
-                    sh 'make test'
+                    echo 'Evaluating model...'
+                    sh './venv/bin/python model_pipeline.py --evaluate'
+                    echo 'Model evaluation completed!'
                 }
             }
         }
@@ -80,7 +84,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'make build_docker'
+                    echo 'Building Docker image...'
+                    sh 'docker build -t ${IMAGE_NAME}:${TAG} .'
+                    echo 'Docker image built successfully!'
                 }
             }
         }
@@ -88,41 +94,44 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    sh 'make docker_login'
-                    sh 'docker push ${IMAGE_NAME}:${TAG}'
+                    echo 'Pushing Docker image to DockerHub...'
+                    docker.withRegistry("${DOCKERHUB_REGISTRY}", "${DOCKERHUB_CREDENTIAL_ID}") {
+                        sh 'docker push ${IMAGE_NAME}:${TAG}'
+                    }
+                    echo 'Docker image pushed to DockerHub successfully!'
                 }
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Deploy') {
             steps {
                 script {
-                    sh 'make run_docker'
+                    echo 'Deploying to production...'
+                    sh 'aws ecs update-service --cluster iquant-ecs --service iquant-ecs-svc --force-new-deployment'
+                    echo 'Deployment completed successfully!'
                 }
             }
         }
 
-        stage('Deploy Application') {
+        stage('Clean Up') {
             steps {
                 script {
-                    sh 'make deploy'
+                    echo 'Cleaning up...'
+                    sh 'rm -rf venv'
+                    echo 'Clean up completed!'
                 }
             }
         }
     }
-
     post {
         always {
-            echo 'Cleaning up after pipeline...'
-            sh 'make clean'
+            echo 'Pipeline execution completed.'
         }
-
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline succeeded!'
         }
-
         failure {
-            echo 'Pipeline failed. Check logs for details.'
+            echo 'Pipeline failed. Please check the logs for errors.'
         }
     }
 }
